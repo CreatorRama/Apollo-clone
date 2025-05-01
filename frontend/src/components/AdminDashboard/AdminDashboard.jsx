@@ -2,44 +2,34 @@
 
 import { useState, useEffect, useCallback, useMemo } from 'react';
 import AddDoctorForm from '@/components/AddDoctorForm/AddDoctorForm';
-import { fetchDoctors } from '@/services/doctorService';
+import { fetchAllDoctors } from '@/services/doctorService'; // Changed to fetchAllDoctors
 import { useApi } from '@/hooks/useApi';
 import styles from './AdminDashboard.module.css';
 
-const ITEMS_PER_PAGE = 10;
-
 const AdminDashboard = () => {
   const [doctors, setDoctors] = useState([]);
-  const [totalDoctors, setTotalDoctors] = useState(0);
-  const [currentPage, setCurrentPage] = useState(1);
   const [activeTab, setActiveTab] = useState('add-doctor');
-  
   const { callApi, loading, error } = useApi();
 
-  const loadDoctors = useCallback(async () => {
+  const loadAllDoctors = useCallback(async () => {
     try {
-      const response = await callApi(fetchDoctors, { 
-        page: currentPage,
-        limit: ITEMS_PER_PAGE
-      });
-      
+      const response = await callApi(fetchAllDoctors); 
       setDoctors(response.data.doctors);
-      setTotalDoctors(response.data.pagination.total);
     } catch (err) {
       console.error('Error loading doctors:', err);
     }
-  }, [callApi, currentPage]);
+  }, [callApi]);
 
   const handleDoctorAdded = useCallback(() => {
-    loadDoctors();
+    loadAllDoctors();
     setActiveTab('manage-doctors');
-  }, [loadDoctors]);
+  }, [loadAllDoctors]);
 
   useEffect(() => {
     if (activeTab === 'manage-doctors') {
-      loadDoctors();
+      loadAllDoctors();
     }
-  }, [currentPage, activeTab, loadDoctors]);
+  }, [activeTab, loadAllDoctors]);
 
   const tabContent = useMemo(() => {
     switch (activeTab) {
@@ -61,7 +51,7 @@ const AdminDashboard = () => {
         
         return (
           <div className={styles.doctorsTable}>
-            <h2>All Doctors</h2>
+            <h2>All Doctors ({doctors.length})</h2>
             <table className={styles.table}>
               <thead>
                 <tr>
@@ -111,7 +101,7 @@ const AdminDashboard = () => {
           className={`${styles.tabButton} ${activeTab === 'manage-doctors' ? styles.activeTab : ''}`}
           onClick={() => setActiveTab('manage-doctors')}
         >
-          Manage Doctors ({totalDoctors})
+          Manage Doctors
         </button>
       </div>
       

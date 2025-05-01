@@ -3,7 +3,6 @@ import { Suspense } from 'react';
 import AdminDashboard from '@/components/AdminDashboard/AdminDashboard';
 import styles from './page.module.css';
 
-// Prevent search engines from indexing admin pages
 export const metadata = {
   robots: 'noindex, nofollow',
   title: 'Admin Dashboard - Apollo 24/7 Clone',

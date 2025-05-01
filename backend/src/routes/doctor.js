@@ -3,11 +3,10 @@ import express from 'express'
 import doctorController from "../controllers/doctor.js";
 const router = express.Router();
 
-router.get('/', doctorController.listDoctors);
+router.get('/filter', doctorController.listDoctors);
 
 router.post('/', doctorController.addDoctor);
 
-// Get doctor by ID (optional but useful)
-router.get('/:id', doctorController.getDoctorById);
+router.get('/', doctorController.listAllDoctors);
 
 export default router;

@@ -4,7 +4,7 @@ const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:5
 export const fetchDoctors = async (params = {}) => {
   try {
     const queryString = new URLSearchParams(params).toString();
-    const response = await fetch(`${API_BASE_URL}/doctors?${queryString}`);
+    const response = await fetch(`${API_BASE_URL}/doctors/filter?${queryString}`);
     
     if (!response.ok) {
       const errorBody = await response.json().catch(() => ({}));
@@ -17,6 +17,11 @@ export const fetchDoctors = async (params = {}) => {
     console.error('Error fetching doctors:', error);
     throw error;
   }
+};
+
+export const fetchAllDoctors = async () => {
+  const response = await fetch(`${API_BASE_URL}/doctors`);
+  return await response.json();
 };
 
 export const addDoctor = async (doctorData) => {

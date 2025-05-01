@@ -1,5 +1,27 @@
 import Doctor from '../models/doctorModel.js'
 
+
+const listAllDoctors = async (req, res) => {
+    try {
+        const doctors = await Doctor.find({})
+            .sort({ featured: -1, doctorOfTheHour: -1, 'fees.amount': 1 });
+        
+        res.status(200).json({
+            success: true,
+            data: {
+                doctors
+            }
+        });
+    } catch (error) {
+        console.error('Error fetching all doctors:', error);
+        res.status(500).json({
+            success: false,
+            message: 'Failed to fetch doctors',
+            error: error.message
+        });
+    }
+};
+
 const listDoctors = async (req, res) => {
     try {
         const {
@@ -116,34 +138,10 @@ const addDoctor = async (req, res) => {
     }
 };
 
-const getDoctorById = async (req, res) => {
-    try {
-        const doctor = await Doctor.findById(req.params.id);
-
-        if (!doctor) {
-            return res.status(404).json({
-                success: false,
-                message: 'Doctor not found'
-            });
-        }
-
-        res.status(200).json({
-            success: true,
-            data: doctor
-        });
-    } catch (error) {
-        console.error('Error fetching doctor:', error);
-        res.status(500).json({
-            success: false,
-            message: 'Failed to fetch doctor',
-            error: error.message
-        });
-    }
-};
 
 
 export default {
     addDoctor,
     listDoctors,
-    getDoctorById
+    listAllDoctors
 }
