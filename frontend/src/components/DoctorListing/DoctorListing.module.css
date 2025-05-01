@@ -1,0 +1,112 @@
+
+.doctorListingContainer {
+    margin-top: 20px;
+  }
+  
+  .filterHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .filterHeaderLeft {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .filterHeaderLeft h2 {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0;
+  }
+  
+  .clearAllBtn {
+    background: none;
+    border: none;
+    color: #0087d4;
+    font-size: 14px;
+    cursor: pointer;
+    text-decoration: underline;
+    padding: 0;
+  }
+  
+  .filterHeaderRight {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .doctorCount {
+    font-size: 14px;
+    color: #666;
+  }
+  
+  .sortDropdown {
+    position: relative;
+  }
+  
+  .sortSelect {
+    padding: 8px 30px 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: white;
+    font-size: 14px;
+    appearance: none;
+    cursor: pointer;
+    outline: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23333' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+  }
+  
+  .contentContainer {
+    display: flex;
+    gap: 30px;
+  }
+  
+  .filtersContainer {
+    flex: 0 0 250px;
+  }
+  
+  .doctorsContainer {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .loading {
+    text-align: center;
+    padding: 40px 0;
+    color: #666;
+    font-size: 16px;
+  }
+  
+  .error {
+    text-align: center;
+    padding: 40px 0;
+    color: #d32f2f;
+    font-size: 16px;
+  }
+  
+  .noDoctors {
+    text-align: center;
+    padding: 40px 0;
+    color: #666;
+    font-size: 16px;
+  }
+  
+  @media (max-width: 768px) {
+    .contentContainer {
+      flex-direction: column;
+    }
+    
+    .filtersContainer {
+      flex: none;
+      width: 100%;
+    }
+  }

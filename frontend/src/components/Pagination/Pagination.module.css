@@ -1,0 +1,50 @@
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 24px;
+    gap: 8px;
+  }
+  
+  .pageButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 36px;
+    height: 36px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: white;
+    color: #333;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+  .pageButton:hover:not(.active):not(.disabled) {
+    background-color: #f5f5f5;
+    border-color: #ccc;
+  }
+  
+  .pageButton.active {
+    background-color: #0087d4;
+    border-color: #0087d4;
+    color: white;
+    font-weight: 600;
+  }
+  
+  .pageButton.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  
+  .ellipsis {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 36px;
+    height: 36px;
+    color: #666;
+    font-size:12px;
+  }

@@ -1,0 +1,82 @@
+# General
+.DS_Store
+*.log
+.env
+.env.local
+.env.development
+.env.production
+.env.test
+.idea
+.vscode
+*.tmp
+*.bak
+*.swp
+node_modules/
+dist/
+build/
+.cache/
+.turbo/
+.next/
+out/
+
+# Frontend (Next.js) specific
+.next/
+.swc/
+.next/cache/
+.next/server/
+.next/static/
+.next/trace
+.next/types/
+
+# Backend (Express) specific
+node_modules/
+dist/
+coverage/
+*.pid
+*.seed
+*.pid.lock
+*.sock
+
+# Database files (if any)
+*.db
+*.sqlite
+*.sqlite3
+*.dump
+
+# Dependency directories
+jspm_packages/
+bower_components/
+
+# Debug logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Local development files
+*.local
+*.dev
+*.test
+
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# System Files
+Thumbs.db
+ehthumbs.db
+[Dd]esktop.ini
+$RECYCLE.BIN/
+
+# Testing
+coverage/
+.nyc_output/
+
+# Package manager specific
+yarn.lock
+pnpm-lock.yaml
