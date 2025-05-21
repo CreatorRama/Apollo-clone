@@ -10,7 +10,7 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 app.use(cors({
-  origin:['https://apollo-clone-alpha.vercel.app/','http://localhost:3000']
+  origin:['https://apollo-clone-alpha.vercel.app','http://localhost:3000']
 }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
