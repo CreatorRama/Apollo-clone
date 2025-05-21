@@ -3,6 +3,7 @@ import { Suspense } from 'react';
 import Header from '@/components/Header/Header';
 import DoctorListing from '@/components/DoctorListing/DoctorListing';
 import styles from './page.module.css';
+import Link from 'next/link';
 
 // Metadata for SEO
 export const metadata = {
@@ -27,7 +28,7 @@ export default function GeneralPhysicianPage() {
       <Header />
       <div className={styles.container}>
         <div className={styles.breadcrumb}>
-          <a href="/">Home</a> &gt; <a href="/doctors">Doctors</a> &gt; General Physicians
+          <Link href="/">Home</Link> &gt; <Link href="/doctors">Doctors</Link> &gt; General Physicians
         </div>
         
         <h1 className={styles.pageTitle}>

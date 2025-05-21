@@ -1,5 +1,5 @@
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:5000/api';
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || 'https://apollo-clone-ra2r.onrender.com/api';
 
 export const fetchDoctors = async (params = {}) => {
   try {

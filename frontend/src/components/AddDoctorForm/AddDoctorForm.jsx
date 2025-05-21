@@ -244,7 +244,7 @@ const AddDoctorForm = ({ onDoctorAdded }) => {
       }, 5000);
       
       try {
-        const errorDetails = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:5000/api'}/doctors`, {
+        const errorDetails = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL || 'https://apollo-clone-ra2r.onrender.com/api'}/doctors`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
